@@ -31,25 +31,58 @@
           <div class="masthead clearfix">
             <div class="inner">
               <h3 class="masthead-brand">LOGO HERE</h3>
+
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="/">Home</a></li>
-                  <security:authorize access="hasAuthority('ADMIN')">
-                  <li>
-                  		<div class="dropdown">
-                          <button class="btn  btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Gestion
-                          <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                            <li><a href="/reservations">RESERVATIONS</a></li>
-                            <li><a href="/users">UTILISATEURS</a></li>
-                          </ul>
-                        </div>
-                  </li>
-                  </security:authorize>
+                  
+        <!-- Menu Tache ADMIN -->
+         <security:authorize access="hasAuthority('ADMIN')">
+			    
+			      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion des ressources <b class="caret"></b> </a>
+			        <ul class="dropdown-menu">
+			          <li class="dropdown-submenu"> <a tabindex="-1" href="#">Gestion des Salles</a>
+			            <ul class="dropdown-menu"> 
+			              <li><a href="/classroom/formAdd/">Ajouter Salle</a></li>
+			              <li><a href="/classroom">Modifier Salle</a></li>
+			              </ul>
+			           </li>
+			          <li class="dropdown-submenu"> <a tabindex="-1" href="#">Gestion des Ordinateurs</a>
+			            <ul class="dropdown-menu"> 
+			              <li><a href="/laptops/formAdd">Ajouter Ordinateur</a></li>
+			              <li><a href="/laptops">Modifier Ordinateur</a></li>
+			            </ul>
+			          </li>
+			          </ul>
+			          </li>
+			          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion des Reservations <b class="caret"></b> </a>
+			            <ul class="dropdown-menu"> 
+			              <li><a href="">Ajouter Reservation</a></li>
+			              <li><a href="/reservations">Modifier Reservation</a></li>
+			              </ul>
+			          </li>
+			         
+			             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion des utilisateurs <b class="caret"></b> </a>
+			            <ul class="dropdown-menu"> 
+			              <li><a href="/users">Ajouter un utilisateur</a></li>
+			              <li><a href="/users">Modifier un utilisateur</a></li>
+			              </ul>
+			          </li>
+       </security:authorize> 
+   <!-- Menu Tache USER -->
+         <security:authorize access="hasAuthority('USER')">
+			          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion des Reservations <b class="caret"></b> </a>
+			            <ul class="dropdown-menu"> 
+			              <li><a href="">Ajouter Reservation</a></li>
+			              <li><a href="/reservations">Modifier Reservation</a></li>
+			              </ul>
+			          </li>
+       </security:authorize>    
+                  
                   <security:authorize access="isAuthenticated()">
                         <li><a href="/users/profil">
-                           <span class="glyphicon glyphicon-user" aria-hidden="true"> Username<span class="caret dropdown-toggle"></span>
-                           </span>
+                        <!-- <span class="glyphicon glyphicon-user" aria-hidden="true"> Username<span class="caret dropdown-toggle"></span>
+                           </span>--> 
 	                            <%--<security:authorize access="isAuthenticated()">--%>
 	                                        <%--<security:authentication property="principal.username" />--%>
 	                            <%--</security:authorize>--%>
@@ -58,11 +91,13 @@
 	                         <li><a href="/renitialmpForm" class="btn btn-lg btn-danger">Change password</a></li>
 	                  </security:authorize>
 
+      
                   <security:authorize access="!isAuthenticated()">
                       <li><a href="/users/form/adduser"   class="btn btn-lg btn-success">Sign up</a></li>
                       <li><a href="/login" class="btn btn-lg btn-info login">Login</a></li>
+                      <li><a href="#">Consulter reservations</a></li>
                   </security:authorize>
-                </ul>
+              </ul>
               </nav>
             </div>
           </div>
@@ -70,14 +105,12 @@
           <div class="inner cover">
             <h1 class="cover-heading"><c:out value="${message }"></c:out></h1>
             <p class="lead">Bienvenue dans l'outil de gestion des ressources de Simplon</p>
-            <p class="lead">
-            
+            <!--  p class="lead">
              <a href="#" class="btn btn-lg btn-default">Réserver une salle</a>
-
 	         <a href="/reservations/laptop/formAdd" class="btn btn-lg btn-default">Réserver ordinateur</a>
-            </p>
-          </div>
-
+            </p>-->
+          
+          </div> 
           <div class="mastfoot">
             <div class="inner">
               

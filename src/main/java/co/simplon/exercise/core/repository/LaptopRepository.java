@@ -9,8 +9,5 @@ import co.simplon.exercise.core.model.Laptop;
 @Resource
 public interface LaptopRepository extends JpaRepository<Laptop, Integer> {
 
-	
-
-
 
 }

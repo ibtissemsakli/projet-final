@@ -1,8 +1,15 @@
 package co.simplon.exercise.core.model;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "Laptop")
@@ -10,7 +17,6 @@ public class Laptop {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "laptop_id")
 	private int id;
 
 	@Column(name = "name")

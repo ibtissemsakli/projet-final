@@ -20,7 +20,7 @@
 <body>
 		   <div class="container">
 			<form class="form-signin" action="/sendNouveauMP">
-			 <h3> Réinitialiser Votre mot de passe</h3>
+			 <h1> Réinitialiser Votre mot de passe</h1>
 			  <!--  label for="inputAncienmp" class="sr-only">ancienne Mot de Passe</label>
 		        <input type="password" name="anemail" id="anemail" class="form-control" placeholder="password" required autofocus>
 		          -->

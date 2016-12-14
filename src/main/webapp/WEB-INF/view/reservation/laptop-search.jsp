@@ -20,8 +20,6 @@
 		 <div class="site-wrapper">
             <div class="site-wrapper-inner">
              <div class="cover-container">
-
-		        <!--  -->
 		        <c:if test="${info != null}">
 				<div class="alert alert-succes">${info }</div>
 			    </c:if>

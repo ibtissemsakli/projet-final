@@ -34,9 +34,9 @@
 					<option></option>
 				</select>
 				<label>DATE RESERVATION</label>
-				<input type="date" name="dateBegin" placeholder="Date dÃ©but" />
+				<input type="date" name="dateBegin" placeholder="Date début" />
 				<input type="date" name="dateEnd" placeholder="Date fin" />
-				<input type="time" name="startTime" placeholder="Heure de dÃ©but">
+				<input type="time" name="startTime" placeholder="Heure de début">
 				<input type="time" name="endTime" placeholder="Heure de fin">
 				<input type="submit" value="Rechercher" />
 			</form>

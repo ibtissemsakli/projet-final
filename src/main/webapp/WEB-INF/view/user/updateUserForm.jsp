@@ -8,7 +8,7 @@
 	<body>
 		<h1></h1>
 		<h2>Modifier le profil :</h2>
-		<form action="/user/update">
+		<form action="/users/update">
 			<input type="hidden" name="id" value="${user.id }"/>
 			<input type="text" name="name" placeholder="name" value="${user.name }" />
 			<input type="text" name="surname" placeholder="surname" value="${user.surname }"/>

@@ -2,15 +2,16 @@ package co.simplon.exercise.web;
 
 import java.util.List;
 
-import co.simplon.exercise.core.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-
-import co.simplon.exercise.core.service.UserService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import co.simplon.exercise.core.model.User;
+import co.simplon.exercise.core.service.UserService;
 
 @Controller
 @RequestMapping("/users")
@@ -60,10 +61,8 @@ public class UserController {
 	 */
 	@RequestMapping(path="/updateUserForm")
 	public ModelAndView getUpdateForm(@RequestParam Integer id, ModelMap model)
-	{
-		User ps = userService.findById(id);
+	{   User ps = userService.findById(id);
 		model.addAttribute(ps);
-
 		return new ModelAndView("user/updateUserForm", model);
 	}
 
@@ -85,5 +84,13 @@ public class UserController {
 		return new ModelAndView("redirect:/users", model);
 	}
 
+	
+	@RequestMapping("/delete")
+	public ModelAndView remove(@RequestParam Integer id, ModelMap model) {
+		
+		userService.delete(id);
+		return new ModelAndView("redirect:/users");
+	}
+	
 
 }

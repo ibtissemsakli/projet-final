@@ -1,15 +1,11 @@
 package co.simplon.exercise.web;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.*;
-
-import co.simplon.exercise.core.model.Classroom;
-import co.simplon.exercise.core.model.Laptop;
-import co.simplon.exercise.core.model.User;
-import co.simplon.exercise.core.service.LaptopService;
-import co.simplon.exercise.core.service.UserService;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import co.simplon.exercise.core.model.Laptop;
 import co.simplon.exercise.core.model.Reservation;
+import co.simplon.exercise.core.model.User;
+import co.simplon.exercise.core.service.LaptopService;
 import co.simplon.exercise.core.service.ReservationService;
+import co.simplon.exercise.core.service.UserService;
 
 @Controller
 @RequestMapping("/reservations")
@@ -60,7 +60,9 @@ public class ReservationController {
 
 	@RequestMapping(value = "laptop/search")
 	public ModelAndView searchLaptops(
-						@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate bookingDate,
+						//@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) int bookingDate,
+			            // @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime startTime,
+			            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate bookingDate,
 						@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime startTime,
 						@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime endTime,
 						ModelMap model,
@@ -137,4 +139,3 @@ public class ReservationController {
 	}
 	
 }
-

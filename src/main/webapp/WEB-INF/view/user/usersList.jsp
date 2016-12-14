@@ -27,8 +27,8 @@
 				      <th>${user.surname}</th>
 				      <th>${user.email}</th>
 				      <th>${user.role}</th>
-				      <th><a href="/user/delete?id=${user.id}" class="btn btn-danger" role="button">Delete</a>
-				          <a href="/user/update?id=${user.id}" class="btn btn-info" role="button">Update</a>
+				      <th><a href="/users/delete?id=${user.id}" class="btn btn-danger" role="button">Delete</a>
+				          <a href="/users/update?id=${user.id}" class="btn btn-info" role="button">Update</a>
 				      </th>
 				    </tr>
 		    </c:forEach>

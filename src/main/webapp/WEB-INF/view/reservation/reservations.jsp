@@ -7,16 +7,14 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="description" content="">
 	    <meta name="author" content="">
-	    
         <title>List of reservations</title>
-        
         <!-- Bootstrap core CSS -->
     <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
         <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
     </head>
     <body>
-    <jsp:include page="../includes/header.jsp"></jsp:include>
+    <!-- <jsp:include page="../includes/header.jsp"></jsp:include> -->
+    <nav><ul class="nav masthead-nav"> <li class="active"><a href="/">Home</a></li></ul></nav><br><br>
     	<div class="container">
     	<div class="jumbotron">
     	<h2>RÉSERVATIONS </h2>

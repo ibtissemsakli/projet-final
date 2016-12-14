@@ -1,7 +1,6 @@
 package co.simplon.exercise.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.simplon.exercise.core.model.Classroom;
 import co.simplon.exercise.core.model.Laptop;
-
 import co.simplon.exercise.core.service.LaptopService;
 
 @Controller
@@ -64,10 +61,20 @@ public class LaptopController {
 	public ModelAndView getUpdateLaptopForm(@RequestParam Integer id, ModelMap model) {
 		Laptop lp = laptopService.findById(id);
 		model.addAttribute(lp);
-		return new ModelAndView("update-laptop", model);
+		return new ModelAndView("laptop/update-laptop", model);
+	}
+	
+	@RequestMapping(path = "/update")
+	public ModelAndView updateLaptop( Integer id,String name, String brand, ModelMap model) {
+		Laptop lp = laptopService.findById(id);
+		lp.setName(name);
+		lp.setBrand(brand);
+		laptopService.addOrUpdate(lp);
+		return new ModelAndView("redirect:/laptops", model);
+
 	}
 
-	@RequestMapping(path = "/update")
+	/*@RequestMapping(path = "/update")
 	public ModelAndView updateLaptop(@RequestParam Integer id,
 									 @RequestParam String name,
 									 @RequestParam String brand,
@@ -78,7 +85,21 @@ public class LaptopController {
 		laptopService.addOrUpdate(lp);
 		return new ModelAndView("redirect:/laptops", model);
 
-	}
+	}*/
+	
+/*	
+	@RequestMapping(path="/update")
+	public ModelAndView updateClassroom(Integer id, String name, int capacity, ModelMap model)
+	{
+		Classroom cl = classroomService.findById(id);
+		cl.setName(name);
+		cl.setCapacity(capacity);
+		classroomService.addOrUpdate(cl);
+		return new ModelAndView("redirect:/classroom", model);
+		
+	}*/
+	
+	
 	
 	/**
 	 * Delete laptop
